@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World！</title>
+    <style type="text/css">
+        h1{
+            text-align: center;
+            font-size: 50px;
+        }
+        *{
+				margin: 0;
+				padding: 0;
+			}
+			.head{
+				width: 450px;
+				height: 500px;
+			}
+			.ears{
+				width: 450px;
+				height: 150px;
+				position: relative;
+			}
+			.earL,
+			.earR{
+				width: 150px;
+				height: 150px;
+				border-radius: 50%;
+				background-color: black;
+				z-index: 5;
+			}
+			.earL{
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			.earR{
+				position: absolute;
+				right: 0;
+				top: 0;
+			}
+			.face{
+				width: 300px;
+				height: 260px;
+				border-radius: 47%/47%;
+				background-color: #fcdfbf;
+				position: relative;
+				left: 75px;
+				top: -70px;
+			}
+			.eyes{
+				width: 150px;
+				height: 55px;
+				position: relative;
+				top: 100px;
+				left: 75px;
+			}
+			.eyeL,
+			.eyeR{
+				width: 40px;
+				height: 55px;
+				background-color: black;
+				position: absolute;
+				border-radius: 50%;
+			}
+			.eyrR
+			.eyeL{
+				width: 40px;
+				height: 55px;
+				background-color: black;
+				position: absolute;
+				border-radius: 50%;
+			}
+			.eyeL{
+				left: 0;
+			}
+			.eyeR{
+				right: 0;
+			}
+			.pupil{
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background-color: white;
+				position: relative;
+				top: 10px;
+				left: 10px;
+			}
+			.nose{
+				width: 30px;
+				height: 20px;
+				border-radius: 48%;
+				background-color: black;
+				position: relative;
+				top: 120px;
+				left: 135px;
+			}
+			.cheeks{
+				width: 220px;
+				height: 40px;
+				position: relative;
+				top: 110px;
+				left: 40px;
+			}
+			.cheekL,
+			.cheekR{
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				background-color: #ec918e;
+				position: absolute;
+			}
+			.cheekL{
+				top: 0;
+				left: 0;
+			}
+			.cheekR{
+				top: 0;
+				right: 0;
+			}
+			.mouse{
+				width: 50px;
+				height: 30px;
+				border-radius: 50%;
+				border: solid 4px black;
+				background-color: transparent;
+				position: relative;
+				top: 80px;
+				left: 120px;			}
+				.mous>.shade{
+					width: 62px;
+					height: 20px;
+					border-radius: 5%/50%;
+					background-color: #fcdfbf;
+					position: relative;
+					top: -4px;
+					left: -6px;
+				}
+    </style>
+</head>
+<body>
+    <h1>Hello</h1>
+    <div class="head">
+        <div class="ears">
+        <div class="earL"></div>
+        <div class="earR"></div>
+        </div>
+        <div class="face">
+            <div class="eyes">
+                <div class="eyeL">
+                    <div class="pupil"></div>
+        </div>
+        <div class="eyeR">
+            <div class="pupil"></div>
+        </div>
+        </div>
+        <div class="nose"></div>
+        <div class="cheeks">
+            <div class="cheekL"></div>
+            <div class="cheekR"></div>
+        </div>
+        <div class="mouse">
+            <div class="shade"></div>
+        </div>
+        </div>
+    </div>   
+</body>
+</html>
