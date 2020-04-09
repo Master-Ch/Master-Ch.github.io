@@ -1,0 +1,35 @@
+body {
+
+    background:url("1.png");
+    background-size:cover;
+    /*background-repeat:no-repeat;*/
+    background-position:top center;
+    background-attachment:fixed;
+}
+h1{
+    position:fixed;
+    top: 150px;
+    left: 1110px;
+    font-weight:800;
+    /*text-align: center;*/
+    font-size: 40px;
+    color:rgb(252, 4, 190);
+    font-family:YouYuan;
+    font-style:italic;
+}
+h2{
+    position:relative;
+	top: 250px;
+    text-align: center;
+    font-size: 50px;
+    color:black;
+}
+h3{
+    position:fixed;
+    top: 50px;
+    left: 1160px;
+    /*text-align: center;*/
+    font-size: 40px;
+    color:rgb(216, 228, 112);
+    font-style:italic;
+}
