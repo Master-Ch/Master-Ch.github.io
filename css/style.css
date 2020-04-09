@@ -1,11 +1,3 @@
-body {
-
-    background:url("1.png");
-    background-size:cover;
-    /*background-repeat:no-repeat;*/
-    background-position:top center;
-    background-attachment:fixed;
-}
 h1{
     position:fixed;
     top: 150px;
