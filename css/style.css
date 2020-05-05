@@ -1,27 +1,587 @@
+/*使用 rgba(255,255,0,0.5) 可以实现设置颜色透明度的功能，这里的 0.5 表示透明度，范围 0~1，0 表示全透明。*/
+/*z-index:-1;如果两个定位元素重叠，没有指定z - index，最后定位在HTML代码中的元素将被显示在最前面。*/
+*{
+	margin: 0;
+    padding: 0;   /*将填充和外边距设置为0，这也是我们在开发前端css代码时首先做的事情将默认的数值清0*/
+    outline: none;
+}
+html,body,#app {
+    height: 100%;
+    min-width: 800px;
+    min-height: 450px;
+    overflow: auto;
+}/*设置最小宽度和高度，让浏览器自适应*/
+body{
+    background-image:url(../images/8.jpg);
+    width: 100%;
+    height: auto;/*设置auto，为自动，可响应式布局，将width设置100%*/
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:top center;
+    /*background-attachment:fixed;*/
+}
+
+@font-face   /*定义一个字体*/
+{
+    font-family: my-font;
+    src: url(my-font.ttf);
+}
+
+/* 鼠标爱心跟随动画 */
+@keyframes pulse {
+	30% {
+	transform:scale(1.2,1.2);
+}
+70% {
+	transform:scale(1,1);
+}
+}
+
+/* 侧边栏关闭按钮动画 */
+@keyframes spin {
+ 0% {color: rgba(55, 255, 255, 1); transform:rotateZ(0deg); }
+ 50% {color: rgba(252, 4, 190,0.5); transform:rotateZ(360deg); }/*设置旋转百中度心为元版素中心。*/
+ 100% {color: red; transform:rotateZ(720deg);}
+}
+
+#main{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* 滚动条样式 */
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar {/*滚动条整体样式*/
+        width: 8px;     /*高宽分别对应横竖滚动条的尺寸*/
+        height: 8px;
+    }
+::-webkit-scrollbar-thumb {/*滚动条里面小方块*/  
+    /*-webkit-box-shadow: inset 0 0 5px rgba(255, 74, 2, 1);*/
+        border-radius: 10px;
+        background: rgba(187, 178, 174, 0.8);
+    }
+::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    /*-webkit-box-shadow: inset 0 0 5px transparent;*/
+        border-radius: 10px;
+        background: transparent;
+    }
+
+/*爱心鼠标跟随*/
+.heart-eye {
+	position:absolute;
+	animation:pulse 1s ease-out infinite;
+}
+.heart {
+	display:block;
+	width:10px;
+	height:10px;
+	background:#e25d5d;
+	transform:rotate(-45deg);
+}
+.heart:before,.heart:after {
+	content:"";
+	position:absolute;
+	width:10px;
+	height:10px;
+	border-radius:50%;
+	background-color:#e25d5d;
+}
+.heart:before {
+	top:-4px;
+	left:0;
+}
+.heart:after {
+	left:4px;
+	top:0;
+}
+
+
+/* 主题文字 */
 h1{
     position:fixed;
-    top: 150px;
-    left: 1110px;
+    top: 120px;
+    right: 100px;
     font-weight:800;
     /*text-align: center;*/
-    font-size: 40px;
-    color:rgb(252, 4, 190);
-    font-family:YouYuan;
+    font-size: 28px;
+    color:rgba(252, 4, 190,0.5);
+    font-family:my-font;
     font-style:italic;
 }
 h2{
-    position:relative;
-	top: 250px;
-    text-align: center;
+    position:absolute;
     font-size: 50px;
-    color:black;
+    top:50%;
+	left: 50%;
+    transform: translateX(-50%);
+    font-family:my-font;
+    color:rgba(0, 0, 0, 0.2);
 }
 h3{
     position:fixed;
     top: 50px;
-    left: 1160px;
+    right: 20px;
+    font-family:my-font;
     /*text-align: center;*/
-    font-size: 40px;
-    color:rgb(216, 228, 112);
+    font-size: 30px;
+    color:rgba(77, 89, 196,0.5);
     font-style:italic;
+}
+
+/* 主界面音乐 */
+.music{
+    position:fixed;
+    bottom: 0px;
+    left: 0px;
+}
+.button-play{
+    width: 50px;
+    height: 50px;
+    background: url(../images/play.gif);
+    border: none;
+    background-size:cover;
+    cursor: pointer;
+}
+
+/* 更换背景 */
+.b{
+    width:100%;
+    height: 360px;
+    min-width: 300px;
+    overflow: auto;
+    box-sizing: border-box;
+    border: 1px solid pink;
+    transition:all 0.4s ease-in-out;
+}
+.b:hover{
+    box-shadow: 8px 0px 10px 1px rgba(87, 114, 122, 0.8);
+    border: 1px solid wheat;
+    background-color: rgba(90, 94, 92,0.5);
+}
+ul li{
+    width: 136.6px;
+    height: 76.8px;
+    list-style: none;
+    float: left;
+    box-sizing: border-box;
+    transition:all 0.4s;
+    background-size:cover;
+    margin-left: 12.5px;
+    margin-top: 18px;
+    }
+.L1{
+    background-image: url(../images/1.jpg);
+    }
+.L2{
+      background-image: url(../images/2.jpg);
+    }
+.L3{
+        background-image: url(../images/3.jpg);
+      }
+.L4{
+        background-image: url(../images/4.jpg);
+}
+.L5{
+        background-image: url(../images/5.jpg);
+      }
+.L6{
+        background-image: url(../images/6.jpg);
+      }
+.L7{
+        background-image: url(../images/7.jpg);
+      } 
+.L8{
+        background-image: url(../images/8.jpg);
+ }
+ul li:hover{
+     transform: translateY(-10px);
+}
+
+
+/* 搜索专栏 */
+input[type=text] {
+    /* margin: 8px 0; */
+    box-sizing: border-box;
+    /* padding-left: 60px; */
+    background: url(../favicon.ico) no-repeat;
+    background-size:22px 22px;/*设置小图标的 大小*/
+    background-position:360px 9px;
+    background-color: rgba(73, 78, 76,0.5);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(98, 150, 170);
+    border-radius: 15px;
+    width:72px;
+    height: 45px;
+    font-size: 15px;
+    padding: 12px 20px;
+    transition:all 0.4s ease-in-out;
+}
+input[type=text]:focus {
+    background-color: rgba(161, 187, 196,0.5);
+    border: 1px solid #555;
+    width:400px;
+ }
+ input[type=submit] {
+    /* background-color: rgba(189, 116, 146,0.5); */
+    background-color: rgba(73, 78, 76,0.5);
+    color: white;
+    width: 72px;
+    height: 45px;
+    /* margin: 8px 0; */
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transform: all 0.4s ease-in;
+  }
+ input[type=submit]:hover {
+    /* background-color: #9b5285; */
+    background:linear-gradient(125deg,#52A0FD 20%,#00d4fa 60%,#00e2fa 80%); 
+  }
+.c{
+width: 500px;
+height: 60px; 
+position: absolute; 
+left:50%;
+top: 42%;
+transform: translateX(-50%);
+Z-index: 1;
+}
+.search{
+    text-align: center;  
+}
+/* placeholder样式 */
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */ 
+    color: white;
+    font-size: 14px;
+}
+::-moz-placeholder { /* Firefox 19+ */  
+    color: white;
+    font-size: 14px;
+}
+:-ms-input-placeholder { /* IE 10+ */ 
+ color: white;
+ font-size: 14px;
+}
+:-moz-placeholder { /* Firefox 18- */ 
+ color: white;
+ font-size: 14px;
+}
+/* 下拉，多搜索引擎 */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none; 
+    position: absolute;
+    background-color: transparent;
+    min-width: 100px;
+    height: 150px;
+    box-shadow: 3px 3px 5px 5px rgba(0,0,0,0.4);
+  }
+.dropdown:hover .dropdown-content {
+    display: block; 
+  }
+.dropdown-content .engine{
+    position: relative;
+    border-bottom: 1px solid rgba(73, 78, 76,0.5);
+    color: rgb(192, 242, 255);
+    box-sizing: border-box;
+    text-align: left;
+    width: 100%;
+    height: 25px;
+    display: block;
+    transform: all 0.4s ease-in;
+    background-color: rgba(73, 78, 76,0.5);
+}
+.dropdown-content .engine:last-child{
+    border-bottom: none;
+}
+.dropdown-content .engine:hover{
+    color: rgb(129, 230, 255);
+    background-color: rgba(73, 78, 76,0.8);
+}
+/* 单选样式 */
+label {
+    cursor: pointer;
+  }
+input[type="radio"] {
+    display: none;
+}
+input[type="radio"] + label::before {
+
+    content: " "; /*不换行空格*/
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 15px;
+    margin-right: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid rgb(142, 249, 255);
+    /* background-color: pink;原始按钮图片地址  */
+    
+    }
+input[type="radio"]:checked + label::before {
+
+        content: " "; /*不换行空格*/
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background:linear-gradient(125deg,#52A0FD 20%,#00d4fa 60%,#00e2fa 80%);
+        /* background: url(../../images/helper/on.png);选中的按钮图片地址 */    
+}
+
+/* 主菜单按钮 */
+.menu{
+    position: absolute;
+    font-size:25px;
+    right: 4%;
+    bottom: 6%;
+    cursor:pointer;
+    color:rgb(134, 163, 163);
+    font-family: my-font;
+}
+.menu:hover{
+    color:#000;
+}
+
+/* 侧边栏 */
+.side-nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgba(211, 214, 213, 0.8);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 80px;
+}
+
+.side-nav .a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: my-font;
+    color: rgba(87, 114, 122, 0.8);
+    display: block;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.side-nav .a:hover, .side-nav .a:focus{
+    color: rgba(55, 255, 255, 1);
+}
+ .close-btn {
+    position: absolute;
+    display: block;
+    top: 10px;
+    right: 25px;
+    color: rgba(87, 114, 122, 0.8);
+    font-size: 40px;
+    cursor: pointer;
+}
+.close-btn:hover{
+    animation: spin 1s ease infinite; /*infinite可更改为次数，例如：1 等*/
+}
+
+@media screen and (max-height: 450px) {
+  .side-nav {padding-top: 15px;}
+  .side-nav a {font-size: 18px;}
+}
+button.accordion {
+    background-color: transparent;
+    padding: 8px 8px 8px 32px;
+    font-size: 18px;
+    font-size: my-font;
+    color: rgba(87, 114, 122, 0.8);
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    transition: 0.4s;
+}
+button.accordion.active, button.accordion:hover {
+    color: rgba(163, 78, 45, 0.8);
+}
+
+/* 下拉菜单关闭和打开，可添加图片 */
+button.accordion:after {
+    content: '\002B';
+    color: rgba(30, 32, 32,0.5);
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+button.accordion.active:after {
+    content: "\2212";
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: transparent;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+div.panel>p{
+    color:wheat;
+}
+
+/* 备忘录 */
+textarea {
+    width: 100%;
+    height: 250px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid rgba(87, 114, 122, 0.8);
+    border-radius: 4px;
+    color: black;
+    background-color: transparent;
+    font-size: 16px;
+    resize: none; /*禁用textarea变换大小*/
+  }
+.note{
+    width: 100%;
+    height: 308px;
+    /* border: 1px solid black; */
+    text-align: center;
+}
+.button-save {
+    width: 80%;
+    box-sizing: border-box;
+    padding: 11px 0px;
+    border: none;
+    color: white;
+    border-radius: 50px;
+    margin-top:4px;
+	background:#52A0FD;
+    background:linear-gradient(125deg,rgba(76, 148, 235, 0.5) ,rgba(22, 211, 236, 0.5) ,rgba(2, 219, 248,0.5));/*to right等方向*/
+    transition: all 0.4 ease-in;
+}
+.button-save:hover{
+    width: 82%;
+    box-shadow: 0px 2px 9px 7px rgba(5, 252, 252, 0.4);
+    color: blanchedalmond;
+    background:linear-gradient(125deg,#52A0FD 20%,#00d4fa 60%,#00e2fa 80%); 
+}
+.button-save:active{
+    width: 80%;
+}
+
+
+/* 导航和小工具，垂直选项卡 */
+.tool-menu{
+    cursor: pointer;
+}
+.tool-menu:hover{
+    color: rgba(163, 78, 45, 0.8);
+}
+.tool {
+    height: 100%;
+    width: 66.5%;
+    min-width: 400px;
+    position: fixed;
+    box-sizing: border-box;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(211, 214, 213, 0.8);
+    overflow-x: hidden;
+    overflow-y: visible;
+    transition: 0.5s;
+    display: none; 
+    padding-top: 70px;
+}
+
+.tool .tab {
+    float: left;
+    border-right: 1px solid rgba(187, 101, 67, 0.8);
+    background-color: transparent;
+    width: 20%;
+    height: auto;
+}
+
+/* Style the buttons inside the tab */
+.tool .tab button {
+    display: block;
+    background-color: inherit;
+    color: rgba(87, 114, 122, 0.8);
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: right;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 17px;
+}
+.tool .tab button:hover {
+    color: rgba(3, 3, 3, 0.8);
+    background-color: #ddd;
+}
+.tool .tab button.active {
+    color: rgba(163, 78, 45, 0.8);
+    background-color: #ccc;
+    border-right:1px solid rgba(255, 74, 2, 1);
+}
+.tab-content {
+    float: right;
+    border: 1px solid rgb(5, 5, 5);
+    width: 73%;
+    border-left: none;
+    border-right: none;
+    height: 100%;
+}
+.tab-content>div{
+    float: left;
+    width: 160px;
+    height: 100px;
+    margin: 20px 0px 0px 20px;
+    border: 1px solid black;
+    text-align: center;
+}
+.tab-content>div>a{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+    color: rgb(71, 74, 75);
+
+}
+.tab-content>div>a:hover{
+    color: rgba(163, 78, 45, 0.8);
+}
+
+/* 娱乐功能和页面 */
+.other{
+    border: 1px solid rgb(165, 253, 3);
+    width: 100%;
+    height: 100px;
+    top: 100px; 
+    display: block;
+    /* white-space: nowrap; 设置如何处理元素内的空白,文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。*/
+    position: relative;
+}
+.m{
+    border: 1px solid blue;
+    width: 42px;
+    display: inline-block;
+}
+.adv{
+    display: inline-block;
+    border: 1px solid blue;
+    display: inline-block;
+    width: 42px;
 }

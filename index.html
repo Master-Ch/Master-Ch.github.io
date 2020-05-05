@@ -1,23 +1,260 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans" manifest="demo_html.appcache">
+  <!--中文lang="zh-Hans"  简体中文lang="zh-cmn-Hans" 繁体中文lang="zh-cmn-Hant"  English lang="en" 进入页面会出现翻译 -->
 <head>
     <meta charset="UTF-8">
-	<title>Hello World！</title>
-	<link type="text/css" rel="stylesheet" href="css/style.css">
-	<style>
-		body {
+    <title>Hello World！</title>
+     <!--网页标题左侧显示-->
+     <link rel="icon" href="favicon.ico" type="image/x-icon">
+     <!--收藏夹显示图标-->
+     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+<!-- 引入jq库 -->
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+<script>//cdn无法工作时，调取本地jq库
+ if (typeof jQuery == 'undefined') {
+ 　　document.write(unescape("%3C script src='js/jquery-2.0.0.min.js'%3E%3C/script%3E"));
+ }
+</script>
+  </head>
 
-           background-image:url("images/1.png");
-           background-size:cover;
-           /*background-repeat:no-repeat;*/
-           background-position:top center;
-           background-attachment:fixed;
-}
-	</style>
-</head>
 <body>
- <h1>Hello,Welcome!</h1>
- <h2>Master-Ch</h2>
- <h3>It is my first web!</h3>  
+
+<div id="main">
+  
+<!--爱心鼠标跟随-->
+<span class="heart-eye"><span class="heart"></span></span>
+
+<!--主界面音乐-->
+  <audio id="audio-music" class="music" autoplay="autoplay" controls="controls" loop hidden>  <!-- audio 添加 hidden，隐藏播放器 -->
+    <source src="music/background.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+ </audio>
+ <button id="a" class="button-play animated zoomInRight" onclick="a();"></button><!--播放控制开关-->
+
+<!--搜索专栏-->
+    <div id="container" class="c" > 
+      <div class="search"> 
+      <!-- <input name="tn" type="hidden" value="baidu">  -->
+      <input type="text"  id='search-wd' class="animated fadeInLeft" name="word"  placeholder="百度" > <!--spellcheck="true" 拼写检查-->
+      <div class="dropdown">  
+        <input type="submit" class="animated fadeInRight" value="搜索" id='search-btn'> 
+        <div id="supersearch" class="dropdown-content">
+          <div class="engine">
+            <input type="radio" name="engine" value="https://www.baidu.com/s?wd=" checked id="engine-baidu" onclick="$('#search-wd')[0].placeholder = '百度'">
+            <label onclick="javascript:$('input:radio')[0].checked = true,$('#search-wd')[0].placeholder = '百度'">百度搜索</label>
+          </div>
+          <div class="engine">
+            <input type="radio" name="engine" value="https://www.so.com/s?q=" id="engine-so" onclick="$('#search-wd')[0].placeholder = '360'">
+            <label onclick="javascript:$('input:radio')[1].checked = true,$('#search-wd')[0].placeholder = '360'">360搜索</label>
+          </div>
+          <div class="engine">
+            <input type="radio" name="engine" value="https://cn.bing.com/search?q=" id="engine-bing" onclick="$('#search-wd')[0].placeholder = '必应'">
+            <label onclick="javascript:$('input:radio')[2].checked = true,$('#search-wd')[0].placeholder = '必应'">Bing搜索</label>
+          </div>
+          <div class="engine">
+            <input type="radio" name="engine" value="https://search.bilibili.com/all?keyword=" id="engine-bilibili" onclick="$('#search-wd')[0].placeholder = '哔哩哔哩'">
+            <label onclick="javascript:$('input:radio')[3].checked = true,$('#search-wd')[0].placeholder = '哔哩哔哩'">哔哩哔哩</label>
+          </div>
+          <div class="engine">
+            <input type="radio" name="engine" value="https://fanyi.baidu.com/#zh/en/" id="engine-translate-baidu" onclick="$('#search-wd')[0].placeholder = '百度翻译'">
+            <label onclick="javascript:$('input:radio')[4].checked = true,$('#search-wd')[0].placeholder = '百度翻译'">百度翻译</label>
+          </div>
+          <div class="engine">
+            <input type="radio" name="engine" value="https://translate.google.cn/#view=home&op=translate&sl=auto&tl=zh-CN&text=" id="engine-translate" onclick="$('#search-wd')[0].placeholder = '谷歌翻译'">
+            <label onclick="javascript:$('input:radio')[5].checked = true,$('#search-wd')[0].placeholder = '谷歌翻译'">谷歌翻译</label>
+          </div>
+      </div>
+     </div>
+    </div> 
+    </div>
+
+    <!-- <input id='search-wd' placeholder="百度搜索" autofocus> -->
+    <!-- <input type="button" value="搜索" id='search-btn'> -->
+<!--主题文字-->
+  <h1 class="animated flipInX">Hello,Welcome!</h1>
+  <h2 class="animated zoomIn">Master-Ch</h2>
+  <h3 class="animated flipInX">It is my first web!</h3> <!--alt如果无法显示图像，浏览器将显示替代文本-->
+
+<!--侧边栏，菜单-->
+  <span class="menu" onclick="openNav()">&#9776; 菜单</span> 
+  <div id="mySide-nav" class="side-nav">
+      
+    <button class="accordion">常规</button>
+      <div class="panel">
+      <p>Lorem ipsum dolor sit amet, consectetur adip</p>
+      </div>
+         
+      <button class="accordion">备忘录</button>
+         <div class="panel" >
+           <div class="note">
+          <textarea id=input>写下你想做的事情吧！</textarea>
+          <button id=save class="button-save">保存</button>
+        </div>
+         </div>
+
+      <button class="accordion">页面壁纸</button>
+          <div class="panel">
+            <div class="b">
+              <ul>
+                <li class="L1 L" id="1"></li>
+                <li class="L2 L" id="2"></li>
+                <li class="L3 L" id="3"></li>
+                <li class="L4 L" id="4"></li>
+                <li class="L5 L" id="5"></li>
+                <li class="L6 L" id="6"></li>
+                <li class="L7 L" id="7"></li>
+                <li class="L8 L" id="8"></li>
+              </ul>
+               </div>
+          </div>
+    <a class="close-btn" onclick="closeNav()">&times;</a>
+    <a class="a" href="#">About</a>
+    <a class="a" href="#">Services</a>
+    <a class="a" href="#">Clients</a>
+    <a class="a" href="#">Contact</a>
+
+<!--音乐播放器，魔方-->   
+    <div class="other">
+      <!--<a href="audio.html"><h4>My Music</h4></a>-->
+    <div id="musics" class="m">    <!--如果将 target 属性设置为 "_blank", 链接将在新窗口打开。不设置则单页面-->
+    <a href="audio.html" target="_blank"><img alt="点击进入播放音乐界面" src="images/m_7.png" width="40px" height="40px">音乐</a>
+    </div><!--style="text-decoration:none;"无下滑线链接，放在<a>里面-->
+    <div  class="adv">
+    <a href="mofang.html" target="_blank"><img alt="魔方" src="images/m_7.png" width="40px" height="40px">魔方</a>
+    </div>
+    <span class="tool-menu" onclick="openTool()">&#9776; 实用网站收藏</span>
+    </div>
+  </div>
+
+  <!-- 小工具和导航，垂直选项卡 -->
+  <div class="tool" id="my-tool">
+    <a class="close-btn" onclick="closeTool()">&times;</a>
+    <div class="tab">
+      <button class="tab-links" onclick="openTap(event, 'tap1')" id="first">资源下载</button>
+      <button class="tab-links" onclick="openTap(event, 'tap2')">视频网站</button>
+      <button class="tab-links" onclick="openTap(event, 'tap3')">图片网站</button>
+      <button class="tab-links" onclick="openTap(event, 'tap4')">音乐网站</button>
+      <button class="tab-links" onclick="openTap(event, 'tap5')">学习网站</button>
+      <button class="tab-links" onclick="openTap(event, 'tap6')">小工具</button>
+      <button class="tab-links" onclick="openTap(event, 'tap7')">其他</button>
+    </div>
+    
+    <div id="tap1" class="tab-content">
+      <div class="animated zoomIn"><a href="https://www.dalipan.com/" target="_blank">大力盘-百度网盘资源搜索</a></div>
+      <div class="animated zoomIn"><a href="http://www.yunpz.net/" target="_blank">云铺子-资源搜索</a></div>
+      <div class="animated zoomIn"><a href="https://xilinjie.cc/" target="_blank">西林街搜索-网络资源垂直搜索</a></div>
+      <div class="animated zoomIn"><a href="http://sc.chinaz.com/" target="_blank">站长素材</a></div>
+      <div class="animated zoomIn"><a href="http://www.aigei.com/" target="_blank">爱给网</a></div>
+      <div class="animated zoomIn"><a href="http://www.tuyiyi.com/" target="_blank">图翼网-设计交流</a></div>
+      <div class="animated zoomIn"><a href="https://www.x6d.com/html/108.html" target="_blank">资源宝库-小刀娱乐网</a></div>
+      <div class="animated zoomIn"><a href="https://www.newcger.com/" target="_blank">新CG儿 - 数字视觉分享平台</a></div>
+      <div class="animated zoomIn"><a href="http://www.lookae.com/" target="_blank">LookAE.com-大众脸影视后期特效</a></div>
+      <div class="animated zoomIn"><a href="https://mixkit.co/" target="_blank">Mixkit - Awesome free assets for your next video project</a></div>
+      <div class="animated zoomIn"><a href="http://www.zhanshaoyi.com/" target="_blank">我爱分享网 | 分享知识，收获智慧</a></div>
+      <div class="animated zoomIn"><a href="https://www.100font.com/" target="_blank">免版权字体下载、免费商用字体下载</a></div>
+      <div class="animated zoomIn"><a href="http://www.1ppt.com/" target="_blank">第一PPT-模板下载</a></div>
+      <div class="animated zoomIn"><a href="https://www.3d66.com/" target="_blank">3D溜溜网-3D模型免费下载</a></div>
+      <div class="animated zoomIn"><a href="https://www.lanrentuku.com/" target="_blank">懒人图库-网页图片代码资源</a></div>
+    </div>
+    
+    <div id="tap2" class="tab-content">
+      <div class="animated flipInX"><a href="http://rarbgmirror.org/torrents.php?r=81391205" target="_blank">RARBG Torrents , films , download</a></div>
+      <div class="animated flipInX"><a href="http://www.idyjy.com/" target="_blank">电影家园_最新电影电视剧免费迅雷下载_电影天堂</a></div>
+      <div class="animated flipInX"><a href="http://www.pianbt.com/" target="_blank">迅雷BT种子|高清电影下载 - PianBT电影天堂</a></div>
+      <div class="animated flipInX"><a href="http://www.2btjia.com/" target="_blank">BT之家_bt电影天堂__电影首发站-影视资源交流社区</a></div>
+      <div class="animated flipInX"><a href="http://pianyuan.la/" target="_blank">片源网(pianyuan.la)</a></div>
+      <div class="animated flipInX"><a href="http://www.cxtv1.com/" target="_blank">春晓影视</a></div>
+      <div class="animated flipInX"><a href="https://www.yugaopian.cn/" target="_blank">预告片世界</a></div>
+      <div class="animated flipInX"><a href="https://www.bttwo.com/" target="_blank">两个BT-影视资源分享下载</a></div>
+      <div class="animated flipInX"><a href="http://www.mp4ba.cc/" target="_blank">高清MP4</a></div>
+      <div class="animated flipInX"><a href="http://www.rrys2019.com/" target="_blank">字幕组-翻译制作海外影视剧字幕</a></div>
+      <div class="animated flipInX"><a href="https://www.xinpianchang.com/" target="_blank">新片场-发现优质视频与创作人</a></div>
+      <div class="animated flipInX"><a href="https://wedistill.io/" target="_blank">DISTILL-免费商用视频素材</a></div>
+      <div class="animated flipInX"><a href="http://www.xstockvideo.com/" target="_blank">XstockVideo-免费标清样片视频库</a></div>
+      <div class="animated flipInX"><a href="https://www.vidsplay.com/" target="_blank">VidsPlay-免费商用高清视频素材</a></div>
+      <div class="animated flipInX"><a href="https://wedistill.io/" target="_blank">DISTILL-免费商用视频素材</a></div>
+    </div>
+
+    <div id="tap3" class="tab-content">
+      <div class="animated slideInUp"><a href="http://699pic.com/" target="_blank">摄图网-正版高清图片免费下载_商用设计素材图库</a></div>
+      <div class="animated slideInUp"><a href="https://www.58pic.com/" target="_blank">千图网-免费设计图片素材网站-正版图库免费设计素材中国</a></div>
+      <div class="animated slideInUp"><a href="https://588ku.com/" target="_blank">千库网_免费png图片背景素材下载,做设计不抠图</a></div>
+      <div class="animated slideInUp"><a href="https://www.pexels.com/zh-cn/" target="_blank">免费素材照片 · Pexels</a></div>
+      <div class="animated slideInUp"><a href="https://pixabay.com/zh/photos/" target="_blank">免费正版高清照片素材库-Pixabay</a></div>
+      <div class="animated slideInUp"><a href="https://unsplash.com/" target="_blank">Beautiful Free Images & Pictures | Unsplash</a></div>
+      <div class="animated slideInUp"><a href="https://huaban.com/" target="_blank">花瓣网</a></div>
+      <div class="animated slideInUp"><a href="https://iconstore.co/" target="_blank">IconStore-免费图标素材资源</a></div>
+      <div class="animated slideInUp"><a href="https://www.cleanpng.com/" target="_blank">CleanPNG-免费商用透明素材</a></div>
+      <div class="animated slideInUp"><a href="https://www.iconfont.cn/" target="_blank">阿里巴巴矢量图标库</a></div>
+      <div class="animated slideInUp"><a href="https://ionicons.com/" target="_blank">Ionicons: The premium icon pack for Ionic Framework</a></div>
+    </div>
+
+    <div id="tap4" class="tab-content">
+      <div class="animated tada"><a href="http://5sing.kugou.com/index.html" target="_blank">中国原创音乐基地 5SING</a></div>
+      <div class="animated tada"><a href="https://www.tosound.com/" target="_blank">淘声网-声音搜索引擎</a></div>
+      <div class="animated tada"><a href="https://www.ear0.com/" target="_blank">耳聆网-听见世界的声音</a></div>
+      <div class="animated tada"><a href="https://www.audiolibrary.com.co/" target="_blank">免费商用音乐频道</a></div>
+      <div class="animated tada"><a href="https://cctrax.com/" target="_blank">CC TRAX-免费商用音乐曲目资源</a></div>
+      <div class="animated tada"><a href="https://audionautix.com/" target="_blank">Audio Nautix-免费音乐旋律节奏</a></div>
+      <div class="animated tada"><a href="https://ibeat.org/" target="_blank">Ibeat-免费音乐节奏旋律</a></div>
+      <div class="animated tada"><a href="http://www.beatpick.com/" target="_blank">BeatPick-免费音乐节奏旋律</a></div>
+      <div class="animated tada"><a href="https://www.jamendo.com/" target="_blank">Jamendo Music-免费音乐节奏旋律</a></div>
+      <div class="animated tada"><a href="https://audiojungle.net/" target="_blank">Royalty Free Music &amp; Audio from AudioJungle</a></div>
+      <div class="animated tada"><a href="https://taira-komori.jpn.org/freesoundcn.html" target="_blank">小森平的免费下载音效</a></div>
+    </div>
+
+    <div id="tap5" class="tab-content">
+      <div class="animated flipInY"><a href="https://www.w3school.com.cn/index.html" target="_blank">w3school 在线教程</a></div>
+      <div class="animated flipInY"><a href="https://www.liaoxuefeng.com/" target="_blank">廖雪峰的官方网站</a></div>
+      <div class="animated flipInY"><a href="https://www.runoob.com/" target="_blank">菜鸟教程 - 学的不仅是技术，更是梦想！</a></div>
+      <div class="animated flipInY"><a href="https://www.imooc.com/" target="_blank">慕课网</a></div>
+      <div class="animated flipInY"><a href="https://www.jsdaima.com/#qtxz" target="_blank">js代码 - IT资源下载平台</a></div>
+      <div class="animated flipInY"><a href="https://bezier.method.ac/" target="_blank">贝塞尔曲线练习</a></div>
+      <div class="animated flipInY"><a href="https://daneden.github.io/animate.css/" target="_blank">Animate.css</a></div>
+      <div class="animated flipInY"><a href="http://www.jq22.com/" target="_blank">jQuery插件库-收集最全最新最好的jQuery插件</a></div>
+      <div class="animated flipInY"><a href="https://jsbin.com/?html,output" target="_blank">JS Bin - Collaborative JavaScript Debugging</a></div>
+      <div class="animated flipInY"><a href="https://github.com/" target="_blank">GitHub-开发项目托管平台</a></div>
+    </div>
+
+    <div id="tap6" class="tab-content">
+      <div class="animated jackInTheBox"><a href="http://www.it233.com/yunpankey" target="_blank">IT233 - 网盘钥匙</a></div>
+      <div class="animated jackInTheBox"><a href="https://www.voidtools.com/zh-cn/" target="_blank">Everything-本地文件极速搜素</a></div>
+      <div class="animated jackInTheBox"><a href="https://moises.ai/" target="_blank">Moises.ai-人声分离</a></div>
+      <div class="animated jackInTheBox"><a href="http://www.qiuziti.com/" target="_blank">字体识别预览下载</a></div>
+      <div class="animated jackInTheBox"><a href="https://loading.io/" target="_blank">在线制作加载动画图标</a></div>
+      <div class="animated jackInTheBox"><a href="https://www.logaster.cn/" target="_blank">免费LOGO设计生成</a></div>
+      <div class="animated jackInTheBox"><a href="https://vectormagic.com/" target="_blank">位图矢量图在线转换</a></div>
+      <div class="animated jackInTheBox"><a href="https://webgradients.com/" target="_blank">渐变背景色配色预览</a></div>
+      <div class="animated jackInTheBox"><a href="https://www.remove.bg/zh" target="_blank">免费在线抠图</a></div>
+      <div class="animated jackInTheBox"><a href="http://fontello.com/" target="_blank">Fontello-字体图标在线制作</a></div>
+      <div class="animated jackInTheBox"><a href="http://weavesilk.com/" target="_blank">Silk-对称艺术光效制作</a></div>
+      <div class="animated jackInTheBox"><a href="https://www.gaoding.com/" target="_blank">稿定设计-在线图片编辑</a></div>
+      <div class="animated jackInTheBox"><a href="https://www.canva.cn/" target="_blank">Canva-免费模板素材在线设计</a></div>
+      <div class="animated jackInTheBox"><a href="https://www.media.io/zh/" target="_blank">万兴优转-免费在线格式转换</a></div>
+      <div class="animated jackInTheBox"><a href="https://smallpdf.com/" target="_blank">Smallpdf-多合一在线PDF工具</a></div>
+      <div class="animated jackInTheBox"><a href="https://www.135editor.com/" target="_blank">135编辑器-公众号图文排版</a></div>
+      <div class="animated jackInTheBox"><a href="https://cli.im/" target="_blank">草料二维码-多功能二维码制作</a></div>
+      <div class="animated jackInTheBox"><a href="http://tools.bugscaner.com/" target="_blank">在线工具 - 强大的多功能在线工具库</a></div>
+      <div class="animated jackInTheBox"><a href="https://www.freedownloadmanager.org/zh/" target="_blank">Free Download Manager-免费网络资源下载软件</a></div>
+    </div>
+
+    <div id="tap7" class="tab-content">
+      <div class="animated swing"><a href="http://bm.straightline.jp/" target="_blank">Straightline-创意网站链接收藏</a></div>
+      <div class="animated swing"><a href="https://sitesee.co/" target="_blank">SiteSee-优美网站链接收藏</a></div>
+      <div class="animated swing"><a href="https://bestwebsite.gallery/" target="_blank">Best Website-优秀网站资源收藏</a></div>
+      <div class="animated swing"><a href="https://www.siteinspire.com/" target="_blank">SiteInspire-优秀创意网页设计参考</a></div>
+      <div class="animated swing"><a href="https://freebiesbug.com/" target="_blank">Freebiesbug-优质应用设计资源</a></div>
+      <div class="animated swing"><a href="https://onepagelove.com/" target="_blank">One Page Love-优秀网页设计模板资源</a></div>
+      <div class="animated swing"><a href="https://www.csswinner.com/" target="_blank">Css Winner-创意动效网站设计奖</a></div>
+      <div class="animated swing"><a href="https://www.cssdesignawards.com/" target="_blank">CSSDesignAwards-优秀网页交互设计奖</a></div>
+      <div class="animated swing"><a href="https://www.awwwards.com/" target="_blank">AWWWARDS-精美创意站点设计奖</a></div>
+      <div class="animated swing"><a href="https://www.csswinner.com/" target="_blank">Css Winner-创意动效网站</a></div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
+<!-- 文件引用 -->
+<script type="text/javascript" src="js/index.js"></script>
