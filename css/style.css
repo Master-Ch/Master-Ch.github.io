@@ -481,7 +481,9 @@ textarea {
 
 /* 导航和小工具，垂直选项卡 */
 .tool-menu{
+    color: rgba(87, 114, 122, 0.8);
     cursor: pointer;
+    margin-left: 32px;
 }
 .tool-menu:hover{
     color: rgba(163, 78, 45, 0.8);
@@ -566,22 +568,28 @@ textarea {
 
 /* 娱乐功能和页面 */
 .other{
-    border: 1px solid rgb(165, 253, 3);
+    /* border: 1px solid rgb(165, 253, 3); */
     width: 100%;
     height: 100px;
-    top: 100px; 
-    display: block;
+    top: 32px;
     /* white-space: nowrap; 设置如何处理元素内的空白,文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。*/
     position: relative;
 }
-.m{
-    border: 1px solid blue;
-    width: 42px;
+.m , .adv{
+    /* border: 1px solid blue; */
+    width: 40px;
+    height: 40px;
+    margin-left: 32px;
     display: inline-block;
+    box-shadow: 8px 8px 8px 1px rgba(87, 114, 122, 0.8);
+    transition: all 0.2s ease-in;
 }
-.adv{
-    display: inline-block;
-    border: 1px solid blue;
-    display: inline-block;
-    width: 42px;
+.m img,.adv img{
+    width: 100%;
+    height: 100%;
+}
+.m:hover,.adv:hover{
+    width: 36px;
+    height: 36px;
+    box-shadow:  8px 8px 8px 1px rgba(82, 101, 107, 0.5);
 }
