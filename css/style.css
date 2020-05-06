@@ -377,7 +377,7 @@ input[type="radio"]:checked + label::before {
 }
 
 .side-nav .a:hover, .side-nav .a:focus{
-    color: rgba(55, 255, 255, 1);
+    color: rgba(163, 78, 45, 0.8);
 }
  .close-btn {
     position: absolute;
@@ -483,6 +483,7 @@ textarea {
 .tool-menu{
     color: rgba(87, 114, 122, 0.8);
     cursor: pointer;
+    font-size: 18px;
     margin-left: 32px;
 }
 .tool-menu:hover{
