@@ -594,3 +594,9 @@ textarea {
     height: 36px;
     box-shadow:  8px 8px 8px 1px rgba(82, 101, 107, 0.5);
 }
+
+#time{
+    margin-left: 32px;
+    margin-top: 50px;
+    color: rgba(87, 114, 122, 0.8);
+}
