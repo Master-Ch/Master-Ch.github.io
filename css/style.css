@@ -194,6 +194,30 @@ ul li{
 .L8{
         background-image: url(../images/8.jpg);
  }
+ .L9{
+    background-image: url(../images/9.jpg);
+}
+.L10{
+    background-image: url(../images/10.jpg);
+}
+.L11{
+    background-image: url(../images/11.jpg);
+}
+.L12{
+    background-image: url(../images/12.jpg);
+}
+.L13{
+    background-image: url(../images/13.jpg);
+}
+.L14{
+    background-image: url(../images/14.jpg);
+}
+.L15{
+    background-image: url(../images/15.jpg);
+}
+.L16{
+    background-image: url(../images/16.jpg);
+}
 ul li:hover{
      transform: translateY(-10px);
 }
@@ -434,7 +458,8 @@ div.panel {
     transition: max-height 0.2s ease-out;
 }
 div.panel>p{
-    color:wheat;
+    color:rgb(224, 15, 61);
+    margin-left: 15px;
 }
 
 /* 备忘录 */
@@ -576,7 +601,7 @@ textarea {
     /* white-space: nowrap; 设置如何处理元素内的空白,文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。*/
     position: relative;
 }
-.m , .adv{
+.m , .adv ,.video{
     /* border: 1px solid blue; */
     width: 40px;
     height: 40px;
@@ -585,11 +610,11 @@ textarea {
     box-shadow: 8px 8px 8px 1px rgba(87, 114, 122, 0.8);
     transition: all 0.2s ease-in;
 }
-.m img,.adv img{
+.m img,.adv img,.video img{
     width: 100%;
     height: 100%;
 }
-.m:hover,.adv:hover{
+.m:hover,.adv:hover,.video:hover{
     width: 36px;
     height: 36px;
     box-shadow:  8px 8px 8px 1px rgba(82, 101, 107, 0.5);
@@ -599,4 +624,24 @@ textarea {
     margin-left: 32px;
     margin-top: 50px;
     color: rgba(87, 114, 122, 0.8);
+}
+
+.about {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 25%;
+    top: 20%;
+    width: 50%; /* Full width */
+    height: 50%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(209, 204, 204, 0.8); /* Black w/ opacity */
+    padding-top: 60px;
+}
+.about p{
+    position: relative;
+    text-align: center;
+    font-size: 15px;
+    color: #555;
+    margin-top: 73px;
 }

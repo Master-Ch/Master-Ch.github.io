@@ -78,7 +78,7 @@
       
     <button class="accordion">常规</button>
       <div class="panel">
-      <p>Lorem ipsum dolor sit amet, consectetur adip</p>
+      <p>暂无功能！</p>
       </div>
          
       <button class="accordion">备忘录</button>
@@ -101,12 +101,20 @@
                 <li class="L6 L" id="6"></li>
                 <li class="L7 L" id="7"></li>
                 <li class="L8 L" id="8"></li>
+                <li class="L9 L" id="9"></li>
+                <li class="L10 L" id="10"></li>
+                <li class="L11 L" id="11"></li>
+                <li class="L12 L" id="12"></li>
+                <li class="L13 L" id="13"></li>
+                <li class="L14 L" id="14"></li>
+                <li class="L15 L" id="15"></li>
+                <li class="L16 L" id="16"></li>
               </ul>
                </div>
           </div>
     <a class="close-btn" onclick="closeNav()">&times;</a>
     <a class="a" onclick="openTool()">&#9776; 实用网站收藏</a>
-    <a class="a" href="#">About</a>
+    <a class="a" onclick="document.getElementById('about').style.display='block'">About</a>
     <a class="a" href="#">Services</a>
     <a class="a" href="#">Clients</a>
     <a class="a" href="#">Contact</a>
@@ -120,8 +128,17 @@
     <div  class="adv">
     <a href="mofang.html" target="_blank"><img alt="魔方" src="images/m_8.png" ></a>
     </div>
+    <div class="video">
+      <a href="video.html" target="_blank"><img alt="视频" src="images/m_10.png" ></a>
+    </div>
+    </div>
     <div id="time"></div>
     </div>
+  </div>
+  <div id="about" class="about">
+    <span onclick="document.getElementById('about').style.display='none'" class="close-btn" >&times;</span>
+    <p>此网页为学习所用，版权所有：Master-Ch</p>
+    <p>看心情更新，谢谢!</p>
   </div>
 
   <!-- 小工具和导航，垂直选项卡 -->

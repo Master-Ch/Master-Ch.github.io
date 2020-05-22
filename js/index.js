@@ -32,6 +32,37 @@ pic[6].onclick=function(){
 pic[7].onclick=function(){
     document.body.style.backgroundImage = 'url(images/8.jpg)';
 }
+pic[8].onclick=function(){
+    document.body.style.backgroundImage = 'url(images/9.jpg)';
+}
+
+pic[9].onclick=function(){
+    document.body.style.backgroundImage = 'url(images/10.jpg)';
+}
+
+pic[10].onclick=function(){
+    document.body.style.backgroundImage = 'url(images/11.jpg)';
+}
+
+pic[11].onclick=function(){
+    document.body.style.backgroundImage = 'url(images/12.jpg)';
+}
+
+pic[12].onclick=function(){
+    document.body.style.backgroundImage = 'url(images/13.jpg)';
+}
+
+pic[13].onclick=function(){
+    document.body.style.backgroundImage = 'url(images/14.jpg)';
+}
+
+pic[14].onclick=function(){
+    document.body.style.backgroundImage = 'url(images/15.jpg)';
+}
+pic[15].onclick=function(){
+    document.body.style.backgroundImage = 'url(images/16.jpg)';
+}
+
 
 
 //切换背景图片

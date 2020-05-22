@@ -1,0 +1,29 @@
+*{
+	margin: 0;
+    padding: 0;   /*将填充和外边距设置为0，这也是我们在开发前端css代码时首先做的事情将默认的数值清0*/
+    text-align: center;
+}
+/*body{
+    background:#2b2938;
+}*/
+body{
+    background-image:url(../images/13.jpg);
+    width: 100%;
+    height: auto;/*设置auto，为自动，可响应式布局，将width设置100%*/
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:top center;
+    /*background-attachment:fixed;*/
+}
+.my-video{
+    position: absolute;
+    /* border: 1px solid pink; */
+    width: 50%;
+    height: 60%;
+    text-align: center;
+    top: 22%;
+    left: 25%;
+}
+video{
+    outline: none;
+}
