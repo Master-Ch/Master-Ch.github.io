@@ -564,17 +564,15 @@ textarea {
 }
 .tab-content {
     float: right;
-    border: 1px solid rgb(5, 5, 5);
+    border: none;
     width: 73%;
-    border-left: none;
-    border-right: none;
     height: 100%;
 }
 .tab-content>div{
     float: left;
     width: 160px;
     height: 100px;
-    margin: 20px 0px 0px 20px;
+    margin: 20px 0px 0px 10px;
     border: 1px solid black;
     text-align: center;
 }
