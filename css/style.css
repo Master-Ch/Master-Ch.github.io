@@ -12,7 +12,7 @@ html,body,#app {
     overflow: auto;
 }/*设置最小宽度和高度，让浏览器自适应*/
 body{
-    background-image:url(../images/8.jpg);
+    background-image:url(../images/15.jpg);
     width: 100%;
     height: auto;/*设置auto，为自动，可响应式布局，将width设置100%*/
     background-repeat:no-repeat;
@@ -233,7 +233,7 @@ input[type=text] {
     background-position:360px 9px;
     background-color: rgba(73, 78, 76,0.5);
     color: rgb(0, 0, 0);
-    border: 1px solid rgb(98, 150, 170);
+    border: none;
     border-radius: 15px;
     width:72px;
     height: 45px;
