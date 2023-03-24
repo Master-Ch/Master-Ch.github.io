@@ -8,10 +8,20 @@
      <link rel="icon" href="favicon.ico" type="image/x-icon">
      <!--收藏夹显示图标-->
      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css?v=3.0">
     <link rel="stylesheet" href="css/animate.min.css">
 <!-- 引入jq库 -->
     <script src="js/jquery-2.0.0.min.js"></script>
+<!-- 引入百度统计 -->
+    <script>
+      var _hmt = _hmt || [];
+         (function() {
+           var hm = document.createElement("script");
+           hm.src = "https://hm.baidu.com/hm.js?823db9f47797d22f6c59d9307b64a63e";
+           var s = document.getElementsByTagName("script")[0]; 
+           s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
   </head>
 
 <body>
@@ -59,6 +69,10 @@
           <div class="engine">
             <input type="radio" name="engine" value="https://translate.google.cn/#view=home&op=translate&sl=auto&tl=zh-CN&text=" id="engine-translate" onclick="$('#search-wd')[0].placeholder = '谷歌翻译'">
             <label onclick="javascript:$('input:radio')[5].checked = true,$('#search-wd')[0].placeholder = '谷歌翻译'">谷歌翻译</label>
+          </div>
+          <div class="engine">
+            <input type="radio" name="engine" value="https://goobe.io/search.aspx?k=" id="engine-translate" onclick="$('#search-wd')[0].placeholder = 'Goobe'">
+            <label onclick="javascript:$('input:radio')[6].checked = true,$('#search-wd')[0].placeholder = '程序员'">Goobe</label>
           </div>
       </div>
      </div>
@@ -109,6 +123,8 @@
                 <li class="L14 L" id="14"></li>
                 <li class="L15 L" id="15"></li>
                 <li class="L16 L" id="16"></li>
+                <li class="L17 L" id="17"></li>
+                <li class="L18 L" id="18"></li>
               </ul>
                </div>
           </div>
@@ -155,6 +171,11 @@
     </div>
     
     <div id="tap1" class="tab-content">
+      <div class="animated zoomIn"><a href="https://adzhp.cn/" target="_blank">爱达杂货铺-资源搜集网站</a></div>
+      <div class="animated zoomIn"><a href="https://yandex.com/" target="_blank">俄罗斯搜搜网站-Yandex</a></div>
+      <div class="animated zoomIn"><a href="https://www.zoomeye.org/" target="_blank">钟馗之眼-超强搜索</a></div>
+      <div class="animated zoomIn"><a href="https://magi.com/" target="_blank">Magi-AI智慧搜索</a></div>
+      <div class="animated zoomIn"><a href="https://www.zmthome.com/" target="_blank">自媒体家园</a></div>
       <div class="animated zoomIn"><a href="https://www.dalipan.com/" target="_blank">大力盘-百度网盘资源搜索</a></div>
       <div class="animated zoomIn"><a href="http://www.yunpz.net/" target="_blank">云铺子-资源搜索</a></div>
       <div class="animated zoomIn"><a href="https://xilinjie.cc/" target="_blank">西林街搜索-网络资源垂直搜索</a></div>
@@ -171,10 +192,7 @@
       <div class="animated zoomIn"><a href="https://www.3d66.com/" target="_blank">3D溜溜网-3D模型免费下载</a></div>
       <div class="animated zoomIn"><a href="https://www.lanrentuku.com/" target="_blank">懒人图库-网页图片代码资源</a></div>
       <div class="animated zoomIn"><a href="http://www.ypppt.com/" target="_blank">优品PPT-模板下载</a></div>
-      <div class="animated zoomIn"><a href="https://adzhp.cn/" target="_blank">爱达杂货铺-资源搜集网站</a></div>
-      <div class="animated zoomIn"><a href="https://yandex.com/" target="_blank">俄罗斯搜搜网站-Yandex</a></div>
-      <div class="animated zoomIn"><a href="https://www.zoomeye.org/" target="_blank">钟馗之眼-超强搜索</a></div>
-      <div class="animated zoomIn"><a href="https://magi.com/" target="_blank">Magi-AI智慧搜索</a></div>
+      <div class="animated zoomIn"><a href="https://www.bossdesign.cn/designnav/" target="_blank">Boss设计</a></div>
     </div>
     
     <div id="tap2" class="tab-content">
@@ -193,20 +211,30 @@
       <div class="animated flipInX"><a href="http://www.xstockvideo.com/" target="_blank">XstockVideo-免费标清样片视频库</a></div>
       <div class="animated flipInX"><a href="https://www.vidsplay.com/" target="_blank">VidsPlay-免费商用高清视频素材</a></div>
       <div class="animated flipInX"><a href="https://wedistill.io/" target="_blank">DISTILL-免费商用视频素材</a></div>
-      <div class="animated flipInX"><a href="http://www.dianyinggou.com/linkNav/" target="_blank">免费电影网站导航-电影狗</a></div>
+      <div class="animated flipInX"><a href="https://www.dianyinggou.com/" target="_blank">免费电影网站导航-电影狗</a></div>
     </div>
 
     <div id="tap3" class="tab-content">
       <div class="animated slideInUp"><a href="http://699pic.com/" target="_blank">摄图网-正版高清图片免费下载_商用设计素材图库</a></div>
+      <div class="animated slideInUp"><a href="https://wallpaper.ur1.fun/" target="_blank">电脑壁纸</a></div>
+      <div class="animated slideInUp"><a href="https://visualhunt.com/" target="_blank">visualhunt图片</a></div>
+      <div class="animated slideInUp"><a href="https://www.sigoo.com/" target="_blank">极像素-超高像素看世界</a></div>
+      <div class="animated slideInUp"><a href="https://www.logosc.cn/so/" target="_blank">免费版权图片一键搜索</a></div>
+      <div class="animated slideInUp"><a href="https://www.ssyer.com/" target="_blank">沙沙野-让作品遇见全世界</a></div>
       <div class="animated slideInUp"><a href="https://www.58pic.com/" target="_blank">千图网-免费设计图片素材网站-正版图库免费设计素材中国</a></div>
       <div class="animated slideInUp"><a href="https://588ku.com/" target="_blank">千库网_免费png图片背景素材下载,做设计不抠图</a></div>
       <div class="animated slideInUp"><a href="https://www.pexels.com/zh-cn/" target="_blank">免费素材照片 · Pexels</a></div>
+      <div class="animated slideInUp"><a href="https://stocksnap.io/" target="_blank">StockSnap:免费图片素材高清资源库</a></div>
       <div class="animated slideInUp"><a href="https://pixabay.com/zh/photos/" target="_blank">免费正版高清照片素材库-Pixabay</a></div>
       <div class="animated slideInUp"><a href="https://unsplash.com/" target="_blank">Beautiful Free Images & Pictures | Unsplash</a></div>
       <div class="animated slideInUp"><a href="https://huaban.com/" target="_blank">花瓣网</a></div>
+      <div class="animated slideInUp"><a href="http://www.zcool.com.cn/" target="_blank">站酷(ZCOOL)，中国设计师互动平台</a></div>
+      <div class="animated slideInUp"><a href="http://pic.netbian.com/" target="_blank">彼岸图网免费提供清新唯美的最新4K下载</a></div>
+      <div class="animated slideInUp"><a href="http://www.lanrentuku.com/" target="_blank">懒人图库专注于提供网页素材下载</a></div>
       <div class="animated slideInUp"><a href="https://iconstore.co/" target="_blank">IconStore-免费图标素材资源</a></div>
       <div class="animated slideInUp"><a href="https://www.cleanpng.com/" target="_blank">CleanPNG-免费商用透明素材</a></div>
       <div class="animated slideInUp"><a href="https://www.iconfont.cn/" target="_blank">阿里巴巴矢量图标库</a></div>
+      <div class="animated slideInUp"><a href="http://retinaicon.com/" target="_blank">3000矢量图标</a></div>
       <div class="animated slideInUp"><a href="https://ionicons.com/" target="_blank">Ionicons: The premium icon pack for Ionic Framework</a></div>
     </div>
 
@@ -222,10 +250,11 @@
       <div class="animated tada"><a href="https://www.jamendo.com/" target="_blank">Jamendo Music-免费音乐节奏旋律</a></div>
       <div class="animated tada"><a href="https://audiojungle.net/" target="_blank">Royalty Free Music &amp; Audio from AudioJungle</a></div>
       <div class="animated tada"><a href="https://taira-komori.jpn.org/freesoundcn.html" target="_blank">小森平的免费下载音效</a></div>
+      <div class="animated tada"><a href="https://freesound.org/" target="_blank">FreeSound</a></div>
     </div>
 
     <div id="tap5" class="tab-content">
-      <div class="animated flipInY"><a href="https://www.w3school.com.cn/index.html" target="_blank">w3school 在线教程</a></div>
+      <div class="animated flipInY"><a href="https://www.bookstack.cn/" target="_blank">书栈网-教程汇总</a></div>
       <div class="animated flipInY"><a href="https://www.liaoxuefeng.com/" target="_blank">廖雪峰的官方网站</a></div>
       <div class="animated flipInY"><a href="https://www.runoob.com/" target="_blank">菜鸟教程 - 学的不仅是技术，更是梦想！</a></div>
       <div class="animated flipInY"><a href="https://www.imooc.com/" target="_blank">慕课网</a></div>
@@ -235,9 +264,26 @@
       <div class="animated flipInY"><a href="http://www.jq22.com/" target="_blank">jQuery插件库-收集最全最新最好的jQuery插件</a></div>
       <div class="animated flipInY"><a href="https://jsbin.com/?html,output" target="_blank">JS Bin - Collaborative JavaScript Debugging</a></div>
       <div class="animated flipInY"><a href="https://github.com/" target="_blank">GitHub-开发项目托管平台</a></div>
+      <div class="animated flipInY"><a href="https://codepen.io" target="_blank">CodePen为前端设计师和开发人员服务</a></div>
+      <div class="animated flipInY"><a href="https://www.freecodecamp.org/" target="_blank">FreeCodeCamp</a></div>
+      <div class="animated flipInY"><a href="http://ife.baidu.com/" target="_blank">百度前端技术学院</a></div>
+      <div class="animated flipInY"><a href="https://www.paddlepaddle.org.cn/" target="_blank">百度开源深度学习平台</a></div>
+      <div class="animated flipInY"><a href="https://es6.ruanyifeng.com/" target="_blank">ES6 入门教程</a></div>
+      <div class="animated flipInY"><a href="http://www.alloyteam.com/nav/" target="_blank">WEB前端导航</a></div>
+      <div class="animated flipInY"><a href="https://segmentfault.com/" target="_blank">思否</a></div>
+      <div class="animated flipInY"><a href="http://caibaojian.com/css3/" target="_blank">CSS手册</a></div>  
+      <div class="animated flipInY"><a href="https://www.bootcdn.cn/" target="_blank">BootCDN免费的前端开源项目CDN加速服务</a></div>
+      <div class="animated flipInY"><a href="https://getman.cn/" target="_blank">GETMAN 在线接口测试</a></div>
+      <div class="animated flipInY"><a href="https://www.bootcdn.cn/" target="_blank">前端开源CDN加速服务</a></div>
+      <div class="animated flipInY"><a href="https://github.ur1.fun/" target="_blank">GitHub加速下载</a></div>
+      <div class="animated flipInY"><a href="https://www.makeapie.com/explore.html#sort=rank~timeframe=all~author=all" target="_blank">ECHARTS社区</a></div>
     </div>
 
     <div id="tap6" class="tab-content">
+      
+      <div class="animated jackInTheBox"><a href="https://www.processon.com/" target="_blank">ProcessOn在线作图工具</a></div>
+      <div class="animated jackInTheBox"><a href="https://clipchamp.com/zh-hans/video-editor/" target="_blank">免费视频在线编辑</a></div>
+      <div class="animated jackInTheBox"><a href="https://www.json.cn/" target="_blank">JSON在线转换</a></div>
       <div class="animated jackInTheBox"><a href="http://www.it233.com/yunpankey" target="_blank">IT233 - 网盘钥匙</a></div>
       <div class="animated jackInTheBox"><a href="https://www.voidtools.com/zh-cn/" target="_blank">Everything-本地文件极速搜素</a></div>
       <div class="animated jackInTheBox"><a href="https://moises.ai/" target="_blank">Moises.ai-人声分离</a></div>
@@ -253,11 +299,14 @@
       <div class="animated jackInTheBox"><a href="https://www.canva.cn/" target="_blank">Canva-免费模板素材在线设计</a></div>
       <div class="animated jackInTheBox"><a href="https://www.media.io/zh/" target="_blank">万兴优转-免费在线格式转换</a></div>
       <div class="animated jackInTheBox"><a href="https://smallpdf.com/" target="_blank">Smallpdf-多合一在线PDF工具</a></div>
+      <div class="animated jackInTheBox"><a href="https://www.ilovepdf.com/zh-cn" target="_blank">PDF爱好者的在线工具</a></div>
+      <div class="animated jackInTheBox"><a href="https://www.pdfpai.com/" target="_blank">PDF免费在线工具</a></div>
       <div class="animated jackInTheBox"><a href="https://www.135editor.com/" target="_blank">135编辑器-公众号图文排版</a></div>
       <div class="animated jackInTheBox"><a href="https://cli.im/" target="_blank">草料二维码-多功能二维码制作</a></div>
       <div class="animated jackInTheBox"><a href="http://tools.bugscaner.com/" target="_blank">在线工具 - 强大的多功能在线工具库</a></div>
       <div class="animated jackInTheBox"><a href="https://www.freedownloadmanager.org/zh/" target="_blank">Free Download Manager-免费网络资源下载软件</a></div>
       <div class="animated jackInTheBox"><a href="https://www.wdku.net/" target="_blank">图片转文字和文档转换工具</a></div>
+      <div class="animated jackInTheBox"><a href="https://toolwa.com/symbol/" target="_blank">特殊符号大全</a></div>
     </div>
 
     <div id="tap7" class="tab-content">
@@ -271,10 +320,12 @@
       <div class="animated swing"><a href="https://www.cssdesignawards.com/" target="_blank">CSSDesignAwards-优秀网页交互设计奖</a></div>
       <div class="animated swing"><a href="https://www.awwwards.com/" target="_blank">AWWWARDS-精美创意站点设计奖</a></div>
       <div class="animated swing"><a href="https://www.csswinner.com/" target="_blank">Css Winner-创意动效网站</a></div>
+      <div class="animated swing"><a href="http://www.doooor.com/forum-38-1.html" target="_blank">DOOOOR品鉴国外优秀设计作品</a></div>
+      <div class="animated swing"><a href="https://collectui.com/" target="_blank">Collect UI设计灵感社区</a></div>
     </div>
   </div>
 </div>
 </body>
 </html>
 <!-- 文件引用 -->
-<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/index.js?v=3.0"></script>

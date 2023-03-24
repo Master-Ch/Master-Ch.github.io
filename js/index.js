@@ -2,102 +2,28 @@
 var heart = document.querySelector('.heart-eye');
 console.log(heart);
 
-document.onmousemove = function(e) {
-    heart.style.top = -12+e.pageY + 'px';
-    heart.style.left = -15 +e.pageX + 'px';
+document.onmousemove = function (e) {
+    heart.style.top = -12 + e.pageY + 'px';
+    heart.style.left = -15 + e.pageX + 'px';
 };
 
-var pic = document.getElementsByClassName("L");
-pic[0].onclick=function () {
-    document.body.style.backgroundImage = 'url(images/1.jpg)';
-}
-pic[1].onclick=function(){
-    document.body.style.backgroundImage = 'url(images/2.jpg)';
-}
-pic[2].onclick=function(){
-    document.body.style.backgroundImage = 'url(images/3.jpg)';
-}
-pic[3].onclick=function(){
-    document.body.style.backgroundImage = 'url(images/4.jpg)';
-}
-pic[4].onclick=function(){
-    document.body.style.backgroundImage = 'url(images/5.jpg)';
-}
-pic[5].onclick=function(){
-    document.body.style.backgroundImage = 'url(images/6.jpg)';
-}
-pic[6].onclick=function(){
-    document.body.style.backgroundImage = 'url(images/7.jpg)';
-}
-pic[7].onclick=function(){
-    document.body.style.backgroundImage = 'url(images/8.jpg)';
-}
-pic[8].onclick=function(){
-    document.body.style.backgroundImage = 'url(images/9.jpg)';
-}
-
-pic[9].onclick=function(){
-    document.body.style.backgroundImage = 'url(images/10.jpg)';
-}
-
-pic[10].onclick=function(){
-    document.body.style.backgroundImage = 'url(images/11.jpg)';
-}
-
-pic[11].onclick=function(){
-    document.body.style.backgroundImage = 'url(images/12.jpg)';
-}
-
-pic[12].onclick=function(){
-    document.body.style.backgroundImage = 'url(images/13.jpg)';
-}
-
-pic[13].onclick=function(){
-    document.body.style.backgroundImage = 'url(images/14.jpg)';
-}
-
-pic[14].onclick=function(){
-    document.body.style.backgroundImage = 'url(images/15.jpg)';
-}
-pic[15].onclick=function(){
-    document.body.style.backgroundImage = 'url(images/16.jpg)';
-}
-
-
-
+    if (!localStorage.getItem("message")) {
+        localStorage.setItem("message", 'true')
+        alert('小改动，已经支持更换背景图片，更换的背景将不会因网站刷新而重置！特此通知(下次打开将不会显示此通知)！！！')
+    }
 //切换背景图片
-/*var oL1=document.getElementById('1');
-var oL2=document.getElementById('2');
-var oL3=document.getElementById('3');
-var oL4=document.getElementById('4');
-var oL5=document.getElementById('5');
-var oL6=document.getElementById('6');
-var oL7=document.getElementById('7');
-var oL8=document.getElementById('8');
-oL1.onclick=function () {
-    document.body.style.backgroundImage = 'url(images/1.jpg)';
+var pic = document.getElementsByClassName("L");
+var back = ['url(images/1.jpg)', 'url(images/2.jpg)', 'url(images/3.jpg)', 'url(images/4.jpg)', 'url(images/5.jpg)', 'url(images/6.jpg)', 'url(images/7.jpg)', 'url(images/8.jpg)', 'url(images/9.jpg)', 'url(images/10.jpg)',
+    'url(images/11.jpg)', 'url(images/12.jpg)', 'url(images/13.jpg)', 'url(images/14.jpg)', 'url(images/15.jpg)', 'url(images/16.jpg)','url(images/17.jpg)','url(images/18.jpg)'];
+for (let i = 0; i < pic.length; i++) {
+    pic[i].onclick = function () {
+        document.body.style.backgroundImage = back[i];
+        localStorage.setItem("background", back[i]);
+        console.log(localStorage.getItem("background"))
+    }
 }
-oL2.onclick=function(){
-    document.body.style.backgroundImage = 'url(images/2.jpg)';
-}
-oL3.onclick=function(){
-    document.body.style.backgroundImage = 'url(images/3.jpg)';
-}
-oL4.onclick=function(){
-    document.body.style.backgroundImage = 'url(images/4.jpg)';
-}
-oL5.onclick=function(){
-    document.body.style.backgroundImage = 'url(images/5.jpg)';
-}
-oL6.onclick=function(){
-    document.body.style.backgroundImage = 'url(images/6.jpg)';
-}
-oL7.onclick=function(){
-    document.body.style.backgroundImage = 'url(images/7.jpg)';
-}
-oL8.onclick=function(){
-    document.body.style.backgroundImage = 'url(images/8.jpg)';
-}*/
+//页面加载用户设置
+document.body.style.backgroundImage = localStorage.getItem("background")
 
 // 侧边栏显示动画
 function openNav() {
@@ -111,7 +37,7 @@ function closeNav() {
 var modal = document.getElementById('mySide-nav');
 
 // 鼠标点击模型外区域关闭登录框
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == document.getElementById('main')) {
         modal.style.width = "0";
     }
@@ -120,43 +46,43 @@ window.onclick = function(event) {
 var acc = document.getElementsByClassName("accordion");
 var i;
 for (i = 0; i < acc.length; i++) {
-  acc[i].onclick = function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight){
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    } 
-  }
+    acc[i].onclick = function () {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+        } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+    }
 }
 
 // 背景音乐
-function a(){
-var audio = document.getElementById('audio-music'); 
-if(audio.paused){                 
-  document.getElementById('a').style.cssText = "background:url(images/play.gif); background-size:cover; border:none;";
-    audio.play();// 播放
-}
-else{
-  document.getElementById('a').style.cssText = "background:url(images/pause.png); background-size:cover;border:none;";
-     audio.pause();// 暂停
-} 
+function a() {
+    var audio = document.getElementById('audio-music');
+    if (audio.paused) {
+        document.getElementById('a').style.cssText = "background:url(../images/play.gif); background-size:cover; border:none;";
+        audio.play();// 播放
+    }
+    else {
+        document.getElementById('a').style.cssText = "background:url(../images/pause.png); background-size:cover;border:none;";
+        audio.pause();// 暂停
+    }
 }
 
 // 备忘录
-window.onload=function(){
+window.onload = function () {
 
-var txt=localStorage["input"];
-if(txt)input.innerHTML=txt;
+    var txt = localStorage["input"];
+    if (txt) input.innerHTML = txt;
 
-save.onclick=function(){
-   if(input.value){
-      localStorage["input"]=input.value;
-      input.innerHTML=input.value;
-      alert("保存成功！不要忘记呦！");
-   }
-}
+    save.onclick = function () {
+        if (input.value) {
+            localStorage["input"] = input.value;
+            input.innerHTML = input.value;
+            alert("保存成功！不要忘记呦！");
+        }
+    }
 }
 /*var audio = document.getElementById('audio-music'); 
 window.addEventListener("canplaythrough", function() {
@@ -164,20 +90,20 @@ window.addEventListener("canplaythrough", function() {
 })*/
 
 //搜索按钮
-$('#search-btn').click(function(){
-    if($('#search-wd').val() =='') return window.open($('input:radio:checked').val(), '_blank');
+$('#search-btn').click(function () {
+    if ($('#search-wd').val() == '') return window.open($('input:radio:checked').val(), '_blank');
     href = $('input:radio:checked').val() + $('#search-wd').val();
     window.open(href, '_blank');
-  
-  });
-  //搜索回车
-  $('#search-wd').keydown(function(e){
-    if(e.keyCode==13){
-      if($('#search-wd').val() =='') return false;
-      href = $('input:radio:checked').val() + $('#search-wd').val();
-      window.open(href, '_blank');
+
+});
+//搜索回车
+$('#search-wd').keydown(function (e) {
+    if (e.keyCode == 13) {
+        if ($('#search-wd').val() == '') return false;
+        href = $('input:radio:checked').val() + $('#search-wd').val();
+        window.open(href, '_blank');
     }
-  });
+});
 
 // 垂直选项卡
 function openTap(event, tapName) {
@@ -199,20 +125,36 @@ document.getElementById("first").click();
 // 打开按钮,过度动画
 function openTool() {
 
-    document.getElementById("my-tool").style.animation="bounceInRight 1s ease 0s 1"
+    document.getElementById("my-tool").style.animation = "bounceInRight 1s ease 0s 1"
     document.getElementById("my-tool").style.display = "block";
 }
 // 关闭按钮,过度动画
 function closeTool() {
-    document.getElementById("my-tool").style.animation="zoomOutDown 1s ease 0s 1"
+    document.getElementById("my-tool").style.animation = "zoomOutDown 1s ease 0s 1"
 
     setTimeout(function () {
-    document.getElementById("my-tool").style.display = "none";
-    document.getElementById("my-tool").style.animation="";
-    },1000);
-    
-}
+        document.getElementById("my-tool").style.display = "none";
+        document.getElementById("my-tool").style.animation = "";
+    }, 1000);
 
+}
+//禁止查看代码，禁用F12,禁用右键，禁用ctrl+shift+i
+// window.onload=function(){
+//     document.onkeydown=function(){
+//     var e=window.event||arguments[0];
+//     if(e.keyCode==123){
+//     alert("小样你想干嘛？");
+//     return false;
+//     }else if((e.ctrlKey)&&(e.shiftKey)&&(e.keyCode==73)){
+//     alert("还是不给你看。。");
+//     return false;
+//     }
+//     };
+//     document.oncontextmenu=function(){
+//     alert("小样不给你看");
+//     return false;
+//     }
+//     }
 // 显示时间
 //document.getElementById('time').innerHTML = new Date().toLocaleString()+ ' 星期' + '日一二三四五六'.charAt(new Date().getDay());
-setInterval("document.getElementById('time').innerHTML=new Date().toLocaleString()+'&nbsp'+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);
+setInterval("document.getElementById('time').innerHTML=new Date().toLocaleString()+'&nbsp'+' 星期'+'日一二三四五六'.charAt(new Date().getDay());", 1000);
